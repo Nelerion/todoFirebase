@@ -147,16 +147,55 @@ export const SendTodo = styled.div`
 `;
 export const PROGRESS = styled.div`
   height: 10px;
-  background-color: blue;
+  background-color: #17e632;
 `;
+
+export const ChooseFile_Button = styled.div`
+border:1px solid #9e9e9d;
+padding:5px;
+cursor: pointer;
+transition: 200ms;
+&:hover{
+  transition: 200ms;
+  background-color: #2d93ce;
+  border: 0;
+  color:#FFFFFF;
+}
+`
 export  const DownloadButton = styled.div`
-  width: 50%;
-  height: 50px;
   display: flex;
   justify-content: center;
   align-items: center;
   cursor: pointer;
-  background-color: #e7f8ff;
-  margin: 0 auto;
+  background-color: #fafeff;
   border: 1px solid #9e9e9d;
+  padding: 5px;
+  transition: 200ms;
+  &:hover{
+    transition: 200ms;
+  background-color: #2d93ce;
+  border: 0;
+  color:#FFFFFF;
+}
 `;
+
+export const Download_Block = styled.div`
+width: 100%;
+display: flex;
+justify-content: center;
+align-items: center;
+padding:10px 5px 0 10px;
+`
+export const Input_file = styled.input`
+display: none;
+`
+export const Download_Label = styled.label`
+display: flex;
+align-items: center;
+gap:10px;
+padding-right: 5px;
+  [type=file]:focus + .div{
+    background-color:red;
+    display: none;
+  }
+`

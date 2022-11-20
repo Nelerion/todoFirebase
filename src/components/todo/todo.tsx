@@ -29,6 +29,10 @@ import {
   SendTodo,
   PROGRESS,
   DownloadButton,
+  Download_Block,
+  ChooseFile_Button,
+  Download_Label,
+  Input_file
 } from "./style/style";
 
 interface TodoItems {
@@ -265,7 +269,13 @@ const Todo = () => {
       id: todo,
     });
   };
-
+const chooseRepairNameFIle = ()=>{
+  const fileName = fileUpload?.name;
+  if(fileUpload?.name.length>8){
+    return fileName.slice(0,9)+'...'
+  }
+  return fileName
+}
   return (
     <TodoContainer>
       <TopBlock>
@@ -287,11 +297,16 @@ const Todo = () => {
           <span>Дата завершения:</span>
           <FinishDate type="date" value={dates} onChange={changeDate} />
         </DataBlock>
-
-        <input type="file" onChange={handlerFile} />
-        <DownloadButton onClick={uploadFile}>
-          Загрузить файл в базу данных
-        </DownloadButton>
+        <Download_Block>
+          <Download_Label>
+          <Input_file type="file" onChange={handlerFile} />
+          <ChooseFile_Button>Выбрать файл</ChooseFile_Button>
+          <span>{chooseRepairNameFIle()}</span>
+          </Download_Label>
+          <DownloadButton onClick={uploadFile}>
+            Прикрепить
+          </DownloadButton>
+        </Download_Block>
         <PROGRESS style={{ width: `${progress}%` }} />
         <SendTodo onClick={makeItem}>СОЗДАТЬ</SendTodo>
       </TopBlock>
